@@ -340,16 +340,17 @@ export default class Dropdown extends PureComponent {
       })
   }
 
-  onSelect (index) {
+  onSelect (index, dataValue) {
     let {
       data,
       valueExtractor,
       onChangeText,
       animationDuration,
       rippleDuration,
+      searchable
     } = this.props
 
-    let value = valueExtractor(data[index], index)
+    let value = searchable ? data.find(item => item.value === dataValue).value : valueExtractor(data[index], index)
     let delay = Math.max(0, rippleDuration - animationDuration)
 
     if ('function' === typeof onChangeText) {
@@ -635,7 +636,7 @@ export default class Dropdown extends PureComponent {
     ]
 
     return (
-      <DropdownItem index={index} {...props}>
+      <DropdownItem index={index} value={title} {...props}>
         <Text style={[styles.item, itemTextStyle, textStyle]} numberOfLines={1}>
           {title}
         </Text>
