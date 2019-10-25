@@ -16,6 +16,7 @@ export default class DropdownItem extends PureComponent {
     ...Button.propTypes,
 
     index: PropTypes.number.isRequired,
+    value: PropTypes.string.isRequired,
   };
 
   constructor(props) {
@@ -25,10 +26,10 @@ export default class DropdownItem extends PureComponent {
   }
 
   onPress() {
-    let { onPress, index } = this.props;
+    let { onPress, index, value } = this.props;
 
     if ('function' === typeof onPress) {
-      onPress(index);
+      onPress(index, value);
     }
   }
 
