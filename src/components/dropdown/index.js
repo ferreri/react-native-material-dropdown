@@ -761,7 +761,7 @@ export default class Dropdown extends PureComponent {
             >
               {searchable && (
                 <TextInput
-                  style={{marginHorizontal: 15, borderBottomWidth: 1, borderBottomColor: 'black'}}
+                  style={{marginHorizontal: 15, borderBottomWidth: 1, borderBottomColor: 'black', height: 50}}
                   placeholder='Procurar'
                   value={search}
                   onChangeText={this.onSearchChange}
